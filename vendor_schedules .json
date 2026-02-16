@@ -1,0 +1,144 @@
+{
+  "GFS": {
+    "full_name": "Gordon Food Service",
+    "orders": [
+      {
+        "order_day": "Sunday",
+        "delivery_day": "Wednesday",
+        "covers": [
+          "Wednesday",
+          "Thursday"
+        ]
+      },
+      {
+        "order_day": "Wednesday",
+        "delivery_day": "Friday",
+        "covers": [
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ]
+      }
+    ],
+    "color": "#2563EB"
+  },
+  "WCW": {
+    "full_name": "What Chefs Want",
+    "orders": [
+      {
+        "order_day": "Sunday",
+        "delivery_day": "Wednesday",
+        "covers": [
+          "Wednesday"
+        ]
+      },
+      {
+        "order_day": "Wednesday",
+        "delivery_day": "Thursday",
+        "covers": [
+          "Thursday"
+        ]
+      },
+      {
+        "order_day": "Thursday",
+        "delivery_day": "Friday",
+        "covers": [
+          "Friday"
+        ]
+      },
+      {
+        "order_day": "Friday",
+        "delivery_day": "Saturday",
+        "covers": [
+          "Saturday",
+          "Sunday"
+        ]
+      }
+    ],
+    "color": "#16A34A"
+  },
+  "EVANS": {
+    "full_name": "Evans Meats",
+    "orders": [
+      {
+        "order_day": "Sunday",
+        "delivery_day": "Wednesday",
+        "covers": [
+          "Wednesday"
+        ]
+      },
+      {
+        "order_day": "Wednesday",
+        "delivery_day": "Thursday",
+        "covers": [
+          "Thursday"
+        ]
+      },
+      {
+        "order_day": "Thursday",
+        "delivery_day": "Friday",
+        "covers": [
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ]
+      }
+    ],
+    "color": "#DC2626"
+  },
+  "LAST CALL": {
+    "full_name": "Last Call Baking",
+    "orders": [
+      {
+        "order_day": "Friday",
+        "delivery_day": "Monday",
+        "covers": [
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ]
+      }
+    ],
+    "color": "#D97706"
+  },
+  "LARDER FOODS": {
+    "full_name": "Larder Foods",
+    "orders": [
+      {
+        "order_day": "Monday",
+        "delivery_day": "Tuesday",
+        "covers": [
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "cover_days": 7.5,
+        "note": "7.5 day supply \u2014 covers full week with half-day safety buffer"
+      }
+    ],
+    "color": "#7C3AED"
+  },
+  "AMAVIDA": {
+    "full_name": "Amavida Coffee",
+    "orders": [
+      {
+        "order_day": "Tuesday",
+        "delivery_day": "Thursday",
+        "covers": [
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+          "Wednesday"
+        ],
+        "cover_days": 7.5,
+        "note": "7.5 day supply \u2014 covers full week with half-day safety buffer"
+      }
+    ],
+    "color": "#92400E"
+  }
+}
