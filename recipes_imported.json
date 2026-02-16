@@ -1,0 +1,1120 @@
+{
+  "NOODLE BOWL": {
+    "noodles": {
+      "qty": 4.0,
+      "unit": "oz"
+    },
+    "NOODLE DRESSING": {
+      "qty": 2.0,
+      "unit": "FL OZ"
+    },
+    "avocado": {
+      "qty": 0.5,
+      "unit": "EACH"
+    },
+    "RAMEN EGG": {
+      "qty": 1.0,
+      "unit": "EACH"
+    },
+    "FERMENTED VEG": {
+      "qty": 2.0,
+      "unit": "oz"
+    },
+    "daikon, radish": {
+      "qty": 10.0,
+      "unit": "G"
+    },
+    "shiitake": {
+      "qty": 0.25,
+      "unit": "OZ"
+    },
+    "furikake": {
+      "qty": 2.0,
+      "unit": "g"
+    },
+    "RECIPE COST:": {
+      "qty": 5.49511,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "GREEN SALAD": {
+    "lettuce mix": {
+      "qty": 3.0,
+      "unit": "oz"
+    },
+    "dates": {
+      "qty": 2.0,
+      "unit": "ea"
+    },
+    "pecans": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "citrus honey vin": {
+      "qty": 2.0,
+      "unit": "oz"
+    },
+    "herbs": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "benne seed": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "RECIPE COST:": {
+      "qty": 4.71,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "SLAW BOWL": {
+    "cabbage mix": {
+      "qty": 2.0,
+      "unit": "cup"
+    },
+    "avocado": {
+      "qty": 0.5,
+      "unit": "each"
+    },
+    "RAMEN EGG": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "FERMENTED VEG": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "daikon, radish": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "shiitake": {
+      "qty": 5.0,
+      "unit": "each"
+    },
+    "furikake": {
+      "qty": 2.0,
+      "unit": "g"
+    },
+    "shallot": {
+      "qty": 0.25,
+      "unit": "oz"
+    },
+    "scallion": {
+      "qty": 2.0,
+      "unit": "g"
+    },
+    "RECIPE COST:": {
+      "qty": 3.7325,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "RICE BOWL": {
+    "KOSHI HIKARI RICE": {
+      "qty": 8.0,
+      "unit": "fl oz"
+    },
+    "avocado": {
+      "qty": 0.5,
+      "unit": "each"
+    },
+    "RAMEN EGG": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "FERMENTED VEG": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "daikon, radish": {
+      "qty": 10.0,
+      "unit": "g"
+    },
+    "shiitake": {
+      "qty": 0.25,
+      "unit": "oz"
+    },
+    "furikake": {
+      "qty": 2.0,
+      "unit": "g"
+    },
+    "shallot": {
+      "qty": 0.25,
+      "unit": "oz"
+    },
+    "RECIPE COST:": {
+      "qty": 3.3425,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "SALMON SKEWER": {
+    "salmon": {
+      "qty": 2.0,
+      "unit": "oz"
+    },
+    "salmon tare": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "chili crunch (used cost from ruby crunch in gfs)": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "thai basil": {
+      "qty": 2.0,
+      "unit": "g"
+    },
+    "RECIPE COST:": {
+      "qty": 2.432,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "BEEF SKEWER": {
+    "beef tender tips": {
+      "qty": 2.0,
+      "unit": "oz"
+    },
+    "TARE": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "garlic chips": {
+      "qty": 5.0,
+      "unit": "each"
+    },
+    "FERMENTED PEPPER": {
+      "qty": 10.0,
+      "unit": "each"
+    },
+    "chive": {
+      "qty": 1.0,
+      "unit": "g"
+    },
+    "RECIPE COST:": {
+      "qty": 1.496,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "CHICKEN SKEWER": {
+    "chicken thigh": {
+      "qty": 2.0,
+      "unit": "oz"
+    },
+    "TARE BASE": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "scallion": {
+      "qty": 0.25,
+      "unit": "oz"
+    },
+    "vinegar spray": {
+      "qty": 2.0,
+      "unit": "spritz"
+    },
+    "YUZU COMEBACK SAUCE": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "thyme": {
+      "qty": 1.0,
+      "unit": "15 pc pinch"
+    },
+    "RECIPE COST:": {
+      "qty": 1.1015,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "BELLY SKEWER": {
+    "pork belly": {
+      "qty": 2.25,
+      "unit": "oz"
+    },
+    "TARE BASE": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "poached shittake": {
+      "qty": 0.25,
+      "unit": "oz"
+    },
+    "vinegar spray": {
+      "qty": 2.0,
+      "unit": "spritz"
+    },
+    "TAHINI SAUCE": {
+      "qty": 0.5,
+      "unit": "oz"
+    },
+    "benne seeds": {
+      "qty": 1.0,
+      "unit": "g"
+    },
+    "chives": {
+      "qty": 1.0,
+      "unit": "g"
+    },
+    "RECIPE COST:": {
+      "qty": 1.425,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "BUTTER & JAM": {
+    "sourdough": {
+      "qty": 1.0,
+      "unit": "slice"
+    },
+    "cultured butter": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "market jam": {
+      "qty": 2.0,
+      "unit": "oz"
+    },
+    "RECIPE COST:": {
+      "qty": 2.83,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "AVOCADO TARTINE": {
+    "sourdough": {
+      "qty": 1.0,
+      "unit": "slice"
+    },
+    "AVOCADO MASH": {
+      "qty": 120.0,
+      "unit": "g"
+    },
+    "avocado sliced": {
+      "qty": 0.5,
+      "unit": "each"
+    },
+    "VINEGAR SPRAY": {
+      "qty": 10.0,
+      "unit": "spritz"
+    },
+    "celtic salt": {
+      "qty": 0.5,
+      "unit": "tsp"
+    },
+    "PICKLED SHALLOT": {
+      "qty": 0.5,
+      "unit": "fl oz"
+    },
+    "FERMENTED GOCHUJANG MASH": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "daikon, radish": {
+      "qty": 0.25,
+      "unit": "oz - wt"
+    },
+    "picked herbs": {
+      "qty": 0.5,
+      "unit": "cup"
+    },
+    "RECIPE COST:": {
+      "qty": 3.8951,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "WINTER SQUASH TARTINE": {
+    "sourdough": {
+      "qty": 1.0,
+      "unit": "slice"
+    },
+    "ROASTED WINTER SQUASH PIECES": {
+      "qty": 120.0,
+      "unit": "g"
+    },
+    "WINTER SQUASH SPREAD": {
+      "qty": 4.0,
+      "unit": "pc"
+    },
+    "shiitake mushroom (85 PER LB)": {
+      "qty": 5.0,
+      "unit": "each"
+    },
+    "pumpkin seeds": {
+      "qty": 0.5,
+      "unit": "OZ - WT"
+    },
+    "sage": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "chervil": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "thai basil": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "chive": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "RECIPE COST:": {
+      "qty": 3.3515,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "TUNA ROLL": {
+    "nori sheet": {
+      "qty": 1.0,
+      "unit": "sheet"
+    },
+    "KOSHI HIKARI RICE": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "tuna": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "NIKIRI": {
+      "qty": 0.25,
+      "unit": "oz"
+    },
+    "daikon, radish": {
+      "qty": 0.5,
+      "unit": "oz"
+    },
+    "SANSHO MAYO": {
+      "qty": 0.16,
+      "unit": "fl oz"
+    },
+    "furikake": {
+      "qty": 1.0,
+      "unit": "pinch"
+    },
+    "chive": {
+      "qty": 0.5,
+      "unit": "g"
+    },
+    "thai basil": {
+      "qty": 0.5,
+      "unit": "g"
+    },
+    "hand vinegar": {
+      "qty": 0.1,
+      "unit": "g"
+    },
+    "RECIPE COST:": {
+      "qty": 2.9510125,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 15.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.1967341667,
+      "unit": "each"
+    }
+  },
+  "SALMON ROLL": {
+    "nori": {
+      "qty": 1.0,
+      "unit": "sheet"
+    },
+    "KOSHI HIKARI": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "salmon": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "lemon": {
+      "qty": 0.25,
+      "unit": "each"
+    },
+    "NIKIRI": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "SUDACHI GINGER": {
+      "qty": 0.25,
+      "unit": "oz"
+    },
+    "scallion sliced": {
+      "qty": 0.5,
+      "unit": "oz"
+    },
+    "green kosho, yuzu": {
+      "qty": 0.25,
+      "unit": "oz"
+    },
+    "togorashi": {
+      "qty": 1.0,
+      "unit": "pinch"
+    },
+    "hand vinegar": {
+      "qty": 1.0,
+      "unit": "spritz"
+    },
+    "RECIPE COST:": {
+      "qty": 3.0788,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 15.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.2052533333,
+      "unit": "each"
+    }
+  },
+  "FRUIT SANDO": {
+    "milk bread": {
+      "qty": 2.0,
+      "unit": "slice"
+    },
+    "WHIPPED CREAM FOR SANDO": {
+      "qty": 4.0,
+      "unit": "FL OZ"
+    },
+    "strawberry": {
+      "qty": 2.0,
+      "unit": "each"
+    },
+    "kiwi": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "coriander sugar": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "RECIPE COST:": {
+      "qty": 2.74,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 9.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.3044444444,
+      "unit": "each"
+    }
+  },
+  "BLT": {
+    "milk bread": {
+      "qty": 2.0,
+      "unit": "slice"
+    },
+    "lemon herb mayo": {
+      "qty": 1.5,
+      "unit": "oz"
+    },
+    "conecuh bacon": {
+      "qty": 4.0,
+      "unit": "oz"
+    },
+    "bibb lettuce": {
+      "qty": 1.0,
+      "unit": "leaf"
+    },
+    "tomato": {
+      "qty": 2.0,
+      "unit": "slice"
+    },
+    "AVOCADO MASH": {
+      "qty": 60.0,
+      "unit": "g"
+    },
+    "celtic salt": {
+      "qty": 0.25,
+      "unit": "g"
+    },
+    "SMOKED KEWPIE": {
+      "qty": 0.5,
+      "unit": "oz"
+    },
+    "RECIPE COST:": {
+      "qty": 4.68285,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 15.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.31219,
+      "unit": "each"
+    }
+  },
+  "EGG SALAD SANDO": {
+    "milk bread": {
+      "qty": 2.0,
+      "unit": "slice"
+    },
+    "JAPANESE EGG SALAD": {
+      "qty": 2.4,
+      "unit": "oz"
+    },
+    "RAMEN EGG": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "chive": {
+      "qty": 1.0,
+      "unit": "tspn"
+    },
+    "RECIPE COST:": {
+      "qty": 1.78532,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 10.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.178532,
+      "unit": "each"
+    }
+  },
+  "PIMENTO CHEESE SANDO": {
+    "milk bread": {
+      "qty": 2.0,
+      "unit": "slices"
+    },
+    "PIMIENTO CHEESE": {
+      "qty": 2.4,
+      "unit": "fl oz"
+    },
+    "pickled peppers": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "lemon thyme": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "RECIPE COST:": {
+      "qty": 1.606,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 10.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.1606,
+      "unit": "each"
+    }
+  },
+  "KATSU SANDO": {
+    "milk bread slice": {
+      "qty": 2.0,
+      "unit": "slice"
+    },
+    "iberico pork shoulder": {
+      "qty": 5.55,
+      "unit": "oz"
+    },
+    "SMOKED KEWPIE SAUCE": {
+      "qty": 0.75,
+      "unit": "oz"
+    },
+    "TONKATSU SAUCE": {
+      "qty": 0.75,
+      "unit": "oz"
+    },
+    "savoy cabbage": {
+      "qty": 0.25,
+      "unit": "cup"
+    },
+    "cilantro": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "RECIPE COST:": {
+      "qty": 4.227,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 15.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.2818,
+      "unit": "each"
+    }
+  },
+  "DEVILED EGGS": {
+    "boiled and cleaned egg white halves": {
+      "qty": 3.0,
+      "unit": "each"
+    },
+    "DEVILED EGG FARCE": {
+      "qty": 2.4,
+      "unit": "oz fl"
+    },
+    "horseradish": {
+      "qty": 2.0,
+      "unit": "g"
+    },
+    "chives": {
+      "qty": 3.0,
+      "unit": "g"
+    },
+    "aleppo": {
+      "qty": 1.0,
+      "unit": "pinch"
+    },
+    "RECIPE COST:": {
+      "qty": 2.151068,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 8.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.2688835,
+      "unit": "each"
+    }
+  },
+  "OLIVES": {
+    "OLIVE MIX": {
+      "qty": 6.0,
+      "unit": "fl oz"
+    },
+    "RECIPE COST:": {
+      "qty": 2.9016,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 10.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.29016,
+      "unit": "each"
+    }
+  },
+  "SNACKBURGER": {
+    "bun 3\" toasted": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "BURGER SAUCE (need recipe, used bfast sando sauce)": {
+      "qty": 1.5,
+      "unit": "oz"
+    },
+    "pickles (2 each)": {
+      "qty": 6.0,
+      "unit": "gram"
+    },
+    "potato straws": {
+      "qty": 0.5,
+      "unit": "oz"
+    },
+    "GFS sliced cheddar": {
+      "qty": 1.0,
+      "unit": "slice"
+    },
+    "bear creek ground beef": {
+      "qty": 5.0,
+      "unit": "oz"
+    },
+    "RECIPE COST:": {
+      "qty": 3.9384,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 16.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.24615,
+      "unit": "each"
+    }
+  },
+  "POPCORN CHICKEN": {
+    "POPCORN CHICKEN (chicken thigh + .11 for breading and batter for 4 oz chicken)": {
+      "qty": 6.0,
+      "unit": "oz - wt"
+    },
+    "GREEN GODDESS": {
+      "qty": 1.5,
+      "unit": "oz - fl"
+    },
+    "radish, shaved": {
+      "qty": 0.1,
+      "unit": "oz - wt"
+    },
+    "thai basil": {
+      "qty": 3.0,
+      "unit": "g"
+    },
+    "SALT & VINEGAR SEASONING": {
+      "qty": 1.0,
+      "unit": "g"
+    },
+    "RECIPE COST:": {
+      "qty": 2.2975,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 14.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.1641071429,
+      "unit": "each"
+    }
+  },
+  "HUMMUS": {
+    "HUMMUS": {
+      "qty": 2.8,
+      "unit": "oz"
+    },
+    "evoo": {
+      "qty": 0.5,
+      "unit": "oz"
+    },
+    "benne seed oil": {
+      "qty": 0.25,
+      "unit": "oz"
+    },
+    "smoked paprika, garnish": {
+      "qty": 0.25,
+      "unit": "gram"
+    },
+    "benne seed, toasted": {
+      "qty": 0.5,
+      "unit": "teaspoon"
+    },
+    "chive": {
+      "qty": 0.5,
+      "unit": "each"
+    },
+    "snow pea, trimmed": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "baby carrot": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "cucumber battonet": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "watermelon": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "sweet pepper": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "celtic salt": {
+      "qty": 4.0,
+      "unit": "gram"
+    },
+    "RECIPE COST:": {
+      "qty": 2.8775225,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 0.0,
+      "unit": "each"
+    }
+  },
+  "EGG TARTINE": {
+    "sourdough": {
+      "qty": 1.0,
+      "unit": "pc"
+    },
+    "SCRAMBLE MIX": {
+      "qty": 2.0,
+      "unit": "fl oz"
+    },
+    "grana padana, shaved": {
+      "qty": 0.5,
+      "unit": "oz"
+    },
+    "lady edison country ham, paper thin": {
+      "qty": 1.0,
+      "unit": "oz"
+    },
+    "chive brunoise": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "evoo": {
+      "qty": 1.0,
+      "unit": "tsp"
+    },
+    "RECIPE COST:": {
+      "qty": 2.496,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 10.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.2496,
+      "unit": "each"
+    }
+  },
+  "SMOKED SALMON TARTINE": {
+    "sourdough": {
+      "qty": 1.0,
+      "unit": "pc"
+    },
+    "salmon smoked": {
+      "qty": 3.0,
+      "unit": "oz"
+    },
+    "MEYER LEMON CREAM CHEESE": {
+      "qty": 3.0,
+      "unit": "oz"
+    },
+    "red onion": {
+      "qty": 0.5,
+      "unit": "oz"
+    },
+    "caper": {
+      "qty": 1.0,
+      "unit": "tspn"
+    },
+    "cherry tomatoes, grilled": {
+      "qty": 5.0,
+      "unit": "each"
+    },
+    "evoo": {
+      "qty": 0.1,
+      "unit": "oz"
+    },
+    "herb salads": {
+      "qty": 2.0,
+      "unit": "g"
+    },
+    "RECIPE COST:": {
+      "qty": 5.39428,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 18.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.2996822222,
+      "unit": "each"
+    }
+  },
+  "YOGURT BOWL": {
+    "PUFFED RICE GRANOLA": {
+      "qty": 60.0,
+      "unit": "g"
+    },
+    "yogurt": {
+      "qty": 4.7,
+      "unit": "oz"
+    },
+    "strawberries, quartered": {
+      "qty": 25.0,
+      "unit": "grams"
+    },
+    "kiwi, sliced 1/4 inch": {
+      "qty": 25.0,
+      "unit": "grams"
+    },
+    "apple, small dice (1/4 cup)": {
+      "qty": 25.0,
+      "unit": "grams"
+    },
+    "honey": {
+      "qty": 10.0,
+      "unit": "g"
+    },
+    "lemon thyme": {
+      "qty": 1.0,
+      "unit": "g"
+    },
+    "RECIPE COST:": {
+      "qty": 2.927115,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 10.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.2927115,
+      "unit": "each"
+    }
+  },
+  "BURRITO": {
+    "tortilla": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "avocado": {
+      "qty": 0.5,
+      "unit": "each"
+    },
+    "celtic salt": {
+      "qty": 1.0,
+      "unit": "g"
+    },
+    "fried tots": {
+      "qty": 15.0,
+      "unit": "each"
+    },
+    "SALT & VINEGAR SEASONING": {
+      "qty": 1.0,
+      "unit": "g"
+    },
+    "oaxaca cheese shred": {
+      "qty": 2.0,
+      "unit": "oz - wt"
+    },
+    "EGG PATTY": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "picked cilantro": {
+      "qty": 3.0,
+      "unit": "g"
+    },
+    "sausage": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "RECIPE COST:": {
+      "qty": 3.93421,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 16.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.245888125,
+      "unit": "each"
+    }
+  },
+  "SAUSAGE SANDO": {
+    "swaggerty sausage patty, 4 oz": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "EGG PATTY": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "cheddar, buttermilk (0.8 oz slice)": {
+      "qty": 1.0,
+      "unit": "slice"
+    },
+    "BFAST SANDO SAUCE": {
+      "qty": 2.0,
+      "unit": "oz"
+    },
+    "milk bread slice": {
+      "qty": 2.0,
+      "unit": "each"
+    },
+    "RECIPE COST:": {
+      "qty": 3.62,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 12.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.3016666667,
+      "unit": "each"
+    }
+  },
+  "BACON SANDO": {
+    "conecuh bacon": {
+      "qty": 2.0,
+      "unit": "oz wt"
+    },
+    "EGG SQUARE": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "cheddar, buttermilk (0.8 oz slice)": {
+      "qty": 1.0,
+      "unit": "each"
+    },
+    "BFAST SANDO SAUCE": {
+      "qty": 1.0,
+      "unit": "oz - fl"
+    },
+    "milk bread slice": {
+      "qty": 2.0,
+      "unit": "each"
+    },
+    "RECIPE COST:": {
+      "qty": 3.0375,
+      "unit": "each"
+    },
+    "MENU PRICE:": {
+      "qty": 12.0,
+      "unit": "each"
+    },
+    "FOOD COST:": {
+      "qty": 0.253125,
+      "unit": "each"
+    }
+  }
+}
