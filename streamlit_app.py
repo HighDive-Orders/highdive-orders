@@ -1077,28 +1077,33 @@ elif page == "📋 Generate Orders":
                 '<h2>Vendor Schedule Overview</h2></div>',
                 unsafe_allow_html=True)
 
-    vcols = st.columns(len([v for v, d in vendor_schedules.items() if d.get("orders")]))
-    col_i = 0
-    for v_key, v_data in vendor_schedules.items():
-        orders = v_data.get("orders", [])
-        if not orders:
-            continue
-        with vcols[col_i]:
-            color = v_data.get("color", "#64748b")
-            order_summary = "<br>".join(
-                [f"📦 Order <b>{o['order_day'][:3]}</b> → Del <b>{o['delivery_day'][:3]}</b>"
-                 for o in orders]
-            )
-            st.markdown(f"""
-            <div class="vendor-card" style="border-left-color: {color};">
-                <h4 style="color: {color};">{v_key}</h4>
-                <p style="font-size:0.78rem; color:#475569; margin-bottom:0.5rem;">
-                    {v_data['full_name']}
-                </p>
-                <p>{order_summary}</p>
-            </div>
-            """, unsafe_allow_html=True)
-        col_i += 1
+    vendors_with_orders = [v for v, d in vendor_schedules.items() if d.get("orders")]
+    
+    if vendors_with_orders:
+        vcols = st.columns(min(len(vendors_with_orders), 6))  # Max 6 columns
+        col_i = 0
+        for v_key, v_data in vendor_schedules.items():
+            orders = v_data.get("orders", [])
+            if not orders:
+                continue
+            with vcols[col_i % len(vcols)]:
+                color = v_data.get("color", "#64748b")
+                order_summary = "<br>".join(
+                    [f"📦 Order <b>{o['order_day'][:3]}</b> → Del <b>{o['delivery_day'][:3]}</b>"
+                     for o in orders]
+                )
+                st.markdown(f"""
+                <div class="vendor-card" style="border-left-color: {color};">
+                    <h4 style="color: {color};">{v_key}</h4>
+                    <p style="font-size:0.78rem; color:#475569; margin-bottom:0.5rem;">
+                        {v_data['full_name']}
+                    </p>
+                    <p>{order_summary}</p>
+                </div>
+                """, unsafe_allow_html=True)
+            col_i += 1
+    else:
+        st.info("No vendor schedules configured yet.")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
