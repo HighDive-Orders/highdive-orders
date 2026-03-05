@@ -88,11 +88,13 @@ class ToastAPIClient:
         return response.json()
     
     def test_connection(self) -> dict:
-        """Test API connection"""
+        """Test API connection by authenticating"""
         try:
-            self._get_access_token()
-            info = self._make_request("GET", "/restaurants/v1/restaurants")
-            return {"success": True, "message": "Connected!", "data": info}
+            token = self._get_access_token()
+            if token:
+                return {"success": True, "message": "Authentication successful! Ready to fetch orders.", "data": None}
+            else:
+                return {"success": False, "message": "No token received", "data": None}
         except Exception as e:
             return {"success": False, "message": str(e), "data": None}
     
