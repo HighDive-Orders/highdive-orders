@@ -13,10 +13,161 @@ import streamlit as st
 import pandas as pd
 import json
 import os
+import requests
 from datetime import datetime, timedelta
 from pathlib import Path
 import plotly.graph_objects as go
 import plotly.express as px
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TOAST API CLIENT (embedded for single-file deployment)
+# ─────────────────────────────────────────────────────────────────────────────
+
+class ToastAPIClient:
+    """Client for interacting with Toast POS API"""
+    
+    BASE_URL = "https://ws-api.toasttab.com"
+    
+    def __init__(self, client_id: str, client_secret: str, restaurant_guid: str):
+        self.client_id = client_id
+        self.client_secret = client_secret
+        self.restaurant_guid = restaurant_guid
+        self._access_token = None
+        self._token_expires = None
+    
+    def _get_access_token(self) -> str:
+        """Authenticate with Toast API and get access token."""
+        if self._access_token and self._token_expires:
+            if datetime.now() < self._token_expires - timedelta(minutes=5):
+                return self._access_token
+        
+        auth_url = f"{self.BASE_URL}/authentication/v1/authentication/login"
+        payload = {
+            "clientId": self.client_id,
+            "clientSecret": self.client_secret,
+            "userAccessType": "TOAST_MACHINE_CLIENT"
+        }
+        
+        response = requests.post(auth_url, json=payload, 
+                                 headers={"Content-Type": "application/json"}, timeout=30)
+        
+        if response.status_code != 200:
+            raise Exception(f"Auth failed: {response.status_code} - {response.text}")
+        
+        data = response.json()
+        if "token" in data and "accessToken" in data["token"]:
+            self._access_token = data["token"]["accessToken"]
+            expires_in = data["token"].get("expiresIn", 3600)
+            self._token_expires = datetime.now() + timedelta(seconds=expires_in)
+            return self._access_token
+        else:
+            raise Exception(f"Unexpected auth response: {data}")
+    
+    def _make_request(self, method: str, endpoint: str, params: dict = None):
+        """Make authenticated request to Toast API"""
+        token = self._get_access_token()
+        url = f"{self.BASE_URL}{endpoint}"
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "Toast-Restaurant-External-ID": self.restaurant_guid,
+            "Content-Type": "application/json"
+        }
+        
+        if method.upper() == "GET":
+            response = requests.get(url, headers=headers, params=params, timeout=60)
+        else:
+            response = requests.post(url, headers=headers, json=params, timeout=60)
+        
+        if response.status_code == 401:
+            self._access_token = None
+            return self._make_request(method, endpoint, params)
+        
+        if response.status_code != 200:
+            raise Exception(f"API error: {response.status_code} - {response.text}")
+        
+        return response.json()
+    
+    def test_connection(self) -> dict:
+        """Test API connection"""
+        try:
+            self._get_access_token()
+            info = self._make_request("GET", "/restaurants/v1/restaurants")
+            return {"success": True, "message": "Connected!", "data": info}
+        except Exception as e:
+            return {"success": False, "message": str(e), "data": None}
+    
+    def get_orders_for_business_date(self, business_date: str, page: int = 1) -> list:
+        """Get orders for a single business date (YYYYMMDD format)"""
+        params = {"businessDate": business_date, "pageSize": 100, "page": page}
+        return self._make_request("GET", "/orders/v2/ordersBulk", params)
+    
+    def get_orders_for_date_range(self, start_date: datetime, end_date: datetime) -> list:
+        """Get all orders between two dates"""
+        all_orders = []
+        current_date = start_date
+        
+        while current_date <= end_date:
+            business_date = current_date.strftime("%Y%m%d")
+            page = 1
+            while True:
+                try:
+                    orders = self.get_orders_for_business_date(business_date, page)
+                    if not orders:
+                        break
+                    all_orders.extend(orders)
+                    if len(orders) < 100:
+                        break
+                    page += 1
+                except Exception as e:
+                    st.warning(f"Error fetching {business_date}: {e}")
+                    break
+            current_date += timedelta(days=1)
+        
+        return all_orders
+
+
+def aggregate_toast_orders_to_product_mix(orders: list) -> pd.DataFrame:
+    """Convert raw Toast orders into a product mix DataFrame similar to Toast export"""
+    product_mix = {}
+    
+    for order in orders:
+        business_date = order.get("businessDate", "")
+        
+        for check in order.get("checks", []):
+            if check.get("voided"):
+                continue
+            
+            for selection in check.get("selections", []):
+                if selection.get("voided") or selection.get("deferred"):
+                    continue
+                
+                item_name = selection.get("displayName") or selection.get("name", "Unknown")
+                quantity = selection.get("quantity", 1)
+                price = selection.get("price", 0) or 0
+                
+                if item_name not in product_mix:
+                    product_mix[item_name] = {"Qty sold": 0, "Net sales": 0.0}
+                
+                product_mix[item_name]["Qty sold"] += quantity
+                product_mix[item_name]["Net sales"] += price * quantity
+    
+    # Convert to DataFrame matching Toast export format
+    rows = [{"Item": item, **data} for item, data in product_mix.items()]
+    return pd.DataFrame(rows)
+
+
+def get_toast_client():
+    """Get Toast API client from Streamlit secrets"""
+    try:
+        if hasattr(st, "secrets") and "toast" in st.secrets:
+            return ToastAPIClient(
+                client_id=st.secrets["toast"]["client_id"],
+                client_secret=st.secrets["toast"]["client_secret"],
+                restaurant_guid=st.secrets["toast"]["restaurant_guid"]
+            )
+    except Exception:
+        pass
+    return None
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE CONFIG
@@ -968,37 +1119,90 @@ elif page == "⚙️ Settings":
         </div>
         """, unsafe_allow_html=True)
 
-        if st.session_state.toast_connected:
-            st.success("✅ Toast API Connected")
-            if st.button("Disconnect"):
-                st.session_state.toast_connected = False
-                st.rerun()
-        else:
-            st.warning("⚠️ Not connected — using manual file uploads")
-
-            with st.form("toast_api_form"):
-                st.markdown("**Enter your Toast API credentials:**")
-                client_id     = st.text_input("Client ID")
-                client_secret = st.text_input("Client Secret", type="password")
-                restaurant_id = st.text_input("Restaurant GUID")
-
-                submitted = st.form_submit_button("💾 Save & Connect", type="primary")
-                if submitted:
-                    if client_id and client_secret and restaurant_id:
-                        # In production: encrypt and store in st.secrets
-                        st.success("✅ Credentials saved! Testing connection...")
-                        # TODO: test_toast_connection(client_id, client_secret, restaurant_id)
-                        st.info("API integration will be completed once credentials are provided.")
-                    else:
-                        st.error("Please fill in all three fields.")
-
+        toast_client = get_toast_client()
+        
+        if toast_client:
+            st.success("✅ Toast API Credentials Found in Secrets")
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("🔌 Test Connection", type="primary", use_container_width=True):
+                    with st.spinner("Testing connection to Toast..."):
+                        result = toast_client.test_connection()
+                        if result["success"]:
+                            st.success(f"✅ {result['message']}")
+                            st.session_state.toast_connected = True
+                            if result.get("data"):
+                                st.json(result["data"])
+                        else:
+                            st.error(f"❌ Connection failed: {result['message']}")
+                            st.session_state.toast_connected = False
+            
+            with col2:
+                if st.button("📥 Fetch Last 4 Weeks", use_container_width=True):
+                    with st.spinner("Fetching orders from Toast (this may take a minute)..."):
+                        try:
+                            end_date = datetime.now()
+                            start_date = end_date - timedelta(days=28)
+                            
+                            orders = toast_client.get_orders_for_date_range(start_date, end_date)
+                            
+                            if orders:
+                                df = aggregate_toast_orders_to_product_mix(orders)
+                                st.session_state.weekly_data["Toast API (Last 4 Weeks)"] = df
+                                st.success(f"✅ Loaded {len(orders)} orders → {len(df)} menu items")
+                                st.session_state.toast_connected = True
+                            else:
+                                st.warning("No orders found in the last 4 weeks")
+                        except Exception as e:
+                            st.error(f"❌ Error: {e}")
+            
             st.markdown("---")
-            st.markdown("**Don't have API credentials yet?**")
+            st.markdown("**Fetch Specific Date Range:**")
+            
+            fcol1, fcol2 = st.columns(2)
+            with fcol1:
+                fetch_start = st.date_input("Start Date", datetime.now() - timedelta(days=28))
+            with fcol2:
+                fetch_end = st.date_input("End Date", datetime.now())
+            
+            if st.button("📅 Fetch Date Range"):
+                with st.spinner(f"Fetching orders from {fetch_start} to {fetch_end}..."):
+                    try:
+                        orders = toast_client.get_orders_for_date_range(
+                            datetime.combine(fetch_start, datetime.min.time()),
+                            datetime.combine(fetch_end, datetime.max.time())
+                        )
+                        if orders:
+                            df = aggregate_toast_orders_to_product_mix(orders)
+                            label = f"Toast {fetch_start} to {fetch_end}"
+                            st.session_state.weekly_data[label] = df
+                            st.success(f"✅ Loaded {len(orders)} orders → {len(df)} items")
+                        else:
+                            st.warning("No orders found in that date range")
+                    except Exception as e:
+                        st.error(f"❌ Error: {e}")
+        
+        else:
+            st.warning("⚠️ Toast API credentials not configured")
             st.markdown("""
-            1. Call Toast support: **1-617-273-0305**
-            2. Or email: **apisupport@toasttab.com**
-            3. Say: *"I need API access for my restaurant ordering system"*
-            4. Takes 1-2 business days to activate
+            **To connect Toast API:**
+            1. Go to your **Streamlit Cloud dashboard** → find your app
+            2. Click **⋮** (three dots) → **Settings** → **Secrets**
+            3. Paste the following (with your real values):
+            
+            ```toml
+            [toast]
+            client_id = "your_client_id"
+            client_secret = "your_client_secret"
+            restaurant_guid = "your_restaurant_guid"
+            ```
+            4. Click **Save** — the app will restart automatically
+            
+            ---
+            **Don't have API credentials yet?**
+            - Call Toast: **1-617-273-0305**
+            - Email: **apisupport@toasttab.com**
             """)
 
     with tab2:
@@ -1037,13 +1241,17 @@ elif page == "⚙️ Settings":
             if unmapped > 0:
                 st.warning(f"{unmapped} ingredients need vendor assignment")
                 st.markdown("Download and edit the vendor mapping file, then re-upload:")
-                with open("/home/claude/highdive_app/vendor_mapping_smart.json") as f:
-                    st.download_button(
-                        "📥 Download Vendor Mapping",
-                        data=f.read(),
-                        file_name="vendor_mapping.json",
-                        mime="application/json"
-                    )
+                try:
+                    vm_path = Path(__file__).parent / "vendor_mapping_smart.json"
+                    with open(vm_path) as f:
+                        st.download_button(
+                            "📥 Download Vendor Mapping",
+                            data=f.read(),
+                            file_name="vendor_mapping.json",
+                            mime="application/json"
+                        )
+                except FileNotFoundError:
+                    st.info("Vendor mapping file not found locally")
 
     with tab3:
         st.markdown("### Vendor Delivery Schedules")
