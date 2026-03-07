@@ -392,13 +392,88 @@ def load_vendor_mapping():
             return json.load(f)
     return {}
 
-@st.cache_data
+DEFAULT_VENDOR_SCHEDULES = {
+    "GFS": {
+        "full_name": "Gordon Food Service",
+        "orders": [
+            {"order_day": "Sunday", "delivery_day": "Wednesday", "covers": ["Wednesday", "Thursday"]},
+            {"order_day": "Wednesday", "delivery_day": "Friday", "covers": ["Friday", "Saturday", "Sunday"]}
+        ],
+        "color": "#2563EB"
+    },
+    "WCW": {
+        "full_name": "What Chefs Want",
+        "orders": [
+            {"order_day": "Sunday", "delivery_day": "Wednesday", "covers": ["Wednesday"]},
+            {"order_day": "Wednesday", "delivery_day": "Thursday", "covers": ["Thursday"]},
+            {"order_day": "Thursday", "delivery_day": "Friday", "covers": ["Friday"]},
+            {"order_day": "Friday", "delivery_day": "Saturday", "covers": ["Saturday", "Sunday"]}
+        ],
+        "color": "#16A34A"
+    },
+    "EVANS": {
+        "full_name": "Evans Meats",
+        "orders": [
+            {"order_day": "Sunday", "delivery_day": "Wednesday", "covers": ["Wednesday"]},
+            {"order_day": "Wednesday", "delivery_day": "Thursday", "covers": ["Thursday"]},
+            {"order_day": "Thursday", "delivery_day": "Friday", "covers": ["Friday", "Saturday", "Sunday"]}
+        ],
+        "color": "#DC2626"
+    },
+    "LAST CALL": {
+        "full_name": "Last Call Baking",
+        "orders": [
+            {"order_day": "Friday", "delivery_day": "Monday", "covers": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}
+        ],
+        "color": "#D97706"
+    },
+    "LARDER FOODS": {
+        "full_name": "Larder Foods",
+        "orders": [
+            {"order_day": "Monday", "delivery_day": "Tuesday", "covers": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+             "cover_days": 7.5, "note": "7.5 day supply — covers full week with half-day safety buffer"}
+        ],
+        "color": "#7C3AED"
+    },
+    "AMAVIDA": {
+        "full_name": "Amavida Coffee",
+        "orders": [
+            {"order_day": "Tuesday", "delivery_day": "Thursday", "covers": ["Thursday", "Friday", "Saturday", "Sunday", "Wednesday"],
+             "cover_days": 7.5, "note": "7.5 day supply — covers full week with half-day safety buffer"}
+        ],
+        "color": "#92400E"
+    }
+}
+
 def load_vendor_schedules():
+    # First try loading from JSON file
     path = Path(__file__).parent / "vendor_schedules.json"
     if path.exists():
-        with open(path) as f:
-            return json.load(f)
-    return {}
+        try:
+            with open(path) as f:
+                data = json.load(f)
+                if data:  # Make sure it's not empty
+                    return data
+        except Exception:
+            pass
+    
+    # Try alternate locations
+    alt_paths = [
+        Path("vendor_schedules.json"),
+        Path("/mount/src/highdive-orders/vendor_schedules.json"),
+    ]
+    for alt in alt_paths:
+        if alt.exists():
+            try:
+                with open(alt) as f:
+                    data = json.load(f)
+                    if data:
+                        return data
+            except:
+                pass
+    
+    # Fallback to embedded default
+    return DEFAULT_VENDOR_SCHEDULES
 
 def load_toast_data_from_file(uploaded_file):
     """Load Toast Product Mix data from uploaded Excel file"""
